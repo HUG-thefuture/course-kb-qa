@@ -1,0 +1,9 @@
+# 需本机安装 Docker Desktop 后使用：docker compose up -d --build
+services:
+  course-kb-qa:
+    build: .
+    ports:
+      - "8040:8040"
+    volumes:
+      - ./data:/app/data          # 知识库与索引持久化
+    restart: unless-stopped

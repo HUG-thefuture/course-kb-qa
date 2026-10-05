@@ -1,0 +1,9 @@
+# course_kb_qa 依赖（与 vendor/ 内预装版本一致；vendor 未含 pytest/httpx，测试时按需安装）
+# 离线复现：pip install -r requirements.txt --target vendor
+fastapi==0.141.1
+uvicorn==0.52.4
+pydantic==2.13.5
+numpy==2.5.3
+# 2026-10-04 补声明：/kb/upload 使用 UploadFile，FastAPI 表单解析依赖 python-multipart
+# （vendor/ 未预装、此前借本地环境隐式满足，CI 首跑暴露）
+python-multipart==0.0.32

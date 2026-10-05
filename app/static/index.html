@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课程知识库问答 · course-kb-qa</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--main:#2f6fed;--text:#1f2329;--muted:#8a919f;--line:#e5e8ef;--warn:#b45309}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;display:flex;justify-content:center}
+.wrap{width:100%;max-width:760px;min-height:100vh;display:flex;flex-direction:column}
+header{padding:14px 20px;background:var(--card);border-bottom:1px solid var(--line)}
+h1{margin:0;font-size:17px}
+.sub{color:var(--muted);font-size:12px}
+main{flex:1;padding:16px 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+.ans{white-space:pre-wrap}
+.refused{color:var(--warn)}
+.muted{color:var(--muted);font-size:13px}
+.sources{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px;font-size:13px;color:var(--muted)}
+.sources ol{margin:6px 0 0;padding-left:20px}
+.sources li{margin:3px 0}
+form{display:flex;gap:10px;padding:12px 20px 18px;background:var(--card);border-top:1px solid var(--line)}
+#q{flex:1;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;outline:none}
+#q:focus{border-color:var(--main)}
+#k{width:80px;padding:10px;border:1px solid var(--line);border-radius:10px;font:inherit}
+form button{padding:0 22px;border:0;border-radius:10px;background:var(--main);color:#fff;font:inherit;cursor:pointer}
+#chips{padding:4px 20px;display:flex;gap:8px;flex-wrap:wrap}
+#chips button{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:5px 12px;font-size:13px;color:var(--main);cursor:pointer}
+#chips button:hover{background:#eef3ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>课程知识库问答</h1>
+  <span class="sub">TF-IDF 检索 · 引用溯源 · 无依据拒答（阈值 0.21）· Top-K 可调（1–20）</span>
+</header>
+<main id="out">
+  <div class="card muted">在下方提问。回答附带引用来源（文档 · 章节 · 相关度）；知识库里没有依据的问题会被明确拒答，而不是编造——试试点「学校食堂今天菜单」。</div>
+</main>
+<div id="chips"></div>
+<form id="f">
+  <input id="q" placeholder="输入问题，如：逆矩阵怎么求？" autocomplete="off">
+  <input id="k" type="number" min="1" max="20" value="3" title="检索条数 Top-K（1–20）">
+  <button>提问</button>
+</form>
+</div>
+<script>
+const CHIPS = [
+  "逆矩阵怎么求？",
+  "连续与间断点怎么判断？",
+  "行列式有哪些性质？",
+  "秩和线性方程组的关系？",
+  "学校食堂今天菜单"
+];
+const out = document.getElementById("out");
+
+function card(text) {
+  const c = document.createElement("div");
+  c.className = "card";
+  if (text) { c.classList.add("muted"); c.textContent = text; }
+  out.appendChild(c);
+  c.scrollIntoView({ behavior: "smooth", block: "end" });
+  return c;
+}
+async function ask(q, k) {
+  if (!q || !q.trim()) return;
+  const busy = card(`检索中（Top-${k}）…`);
+  try {
+    const r = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: q, top_k: k })
+    });
+    if (!r.ok) { busy.className = "card"; busy.innerHTML = ""; busy.textContent = "请求失败：HTTP " + r.status; return; }
+    const d = await r.json();
+    busy.className = "card"; busy.innerHTML = "";
+    const ans = document.createElement("div");
+    ans.className = "ans" + (d.refused ? " refused" : "");
+    ans.textContent = d.answer;
+    busy.appendChild(ans);
+    if (d.sources && d.sources.length) {
+      const s = document.createElement("div");
+      s.className = "sources";
+      s.textContent = "引用来源：";
+      const ol = document.createElement("ol");
+      for (const src of d.sources) {
+        const li = document.createElement("li");
+        li.textContent = `《${src.file}》·${src.section}（相关度 ${src.score}）`;
+        ol.appendChild(li);
+      }
+      s.appendChild(ol);
+      busy.appendChild(s);
+    }
+  } catch (e) {
+    busy.className = "card"; busy.innerHTML = "";
+    const t = document.createElement("span"); t.className = "refused";
+    t.textContent = "网络错误：" + e.message;
+    busy.appendChild(t);
+  }
+}
+document.getElementById("f").addEventListener("submit", e => {
+  e.preventDefault();
+  const q = document.getElementById("q");
+  const k = parseInt(document.getElementById("k").value, 10) || 3;
+  ask(q.value, k); q.value = "";
+});
+const chips = document.getElementById("chips");
+for (const c of CHIPS) {
+  const b = document.createElement("button");
+  b.textContent = c; b.onclick = () => ask(c, 3);
+  chips.appendChild(b);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "E01",
+    "question": "ε-δ 语言的定义是什么？",
+    "gold_file": "高等数学_极限与连续.md",
+    "gold_section": "ε-δ 语言",
+    "type": "answerable"
+  },
+  {
+    "id": "E02",
+    "question": "两个重要极限指的是哪两个？",
+    "gold_file": "高等数学_极限与连续.md",
+    "gold_section": "两个重要极限",
+    "type": "answerable"
+  },
+  {
+    "id": "E03",
+    "question": "连续与间断点怎么判断？",
+    "gold_file": "高等数学_极限与连续.md",
+    "gold_section": "连续与间断点",
+    "type": "answerable"
+  },
+  {
+    "id": "E04",
+    "question": "行列式有哪些性质？",
+    "gold_file": "线性代数_矩阵与行列式.md",
+    "gold_section": "行列式性质",
+    "type": "answerable"
+  },
+  {
+    "id": "E05",
+    "question": "逆矩阵怎么求？",
+    "gold_file": "线性代数_矩阵与行列式.md",
+    "gold_section": "逆矩阵的求法",
+    "type": "answerable"
+  },
+  {
+    "id": "E06",
+    "question": "秩和线性方程组的关系？",
+    "gold_file": "线性代数_矩阵与行列式.md",
+    "gold_section": "秩与线性方程组",
+    "type": "answerable"
+  },
+  {
+    "id": "E07",
+    "question": "什么是条件概率？",
+    "gold_file": "概率论与数理统计.md",
+    "gold_section": "条件概率与独立性",
+    "type": "answerable"
+  },
+  {
+    "id": "E08",
+    "question": "期望和方差怎么计算？",
+    "gold_file": "概率论与数理统计.md",
+    "gold_section": "期望与方差",
+    "type": "answerable"
+  },
+  {
+    "id": "E09",
+    "question": "顺序表和链表的区别？",
+    "gold_file": "数据结构_线性表与树.md",
+    "gold_section": "顺序表与链表",
+    "type": "answerable"
+  },
+  {
+    "id": "E10",
+    "question": "二叉搜索树的特点？",
+    "gold_file": "数据结构_线性表与树.md",
+    "gold_section": "二叉搜索树",
+    "type": "answerable"
+  },
+  {
+    "id": "E11",
+    "question": "Dijkstra 算法的思想？",
+    "gold_file": "数据结构_图与排序.md",
+    "gold_section": "最短路 Dijkstra",
+    "type": "answerable"
+  },
+  {
+    "id": "E12",
+    "question": "快速排序的过程？",
+    "gold_file": "数据结构_图与排序.md",
+    "gold_section": "快速排序",
+    "type": "answerable"
+  },
+  {
+    "id": "E13",
+    "question": "死锁的四个必要条件？",
+    "gold_file": "操作系统_进程与内存.md",
+    "gold_section": "死锁的四个条件",
+    "type": "answerable"
+  },
+  {
+    "id": "E14",
+    "question": "页面置换算法有哪些？",
+    "gold_file": "操作系统_进程与内存.md",
+    "gold_section": "虚拟内存与页面置换",
+    "type": "answerable"
+  },
+  {
+    "id": "E15",
+    "question": "TCP 三次握手的过程？",
+    "gold_file": "计算机网络_体系结构.md",
+    "gold_section": "三次握手",
+    "type": "answerable"
+  },
+  {
+    "id": "E16",
+    "question": "TCP 和 UDP 的区别？",
+    "gold_file": "计算机网络_体系结构.md",
+    "gold_section": "TCP 与 UDP",
+    "type": "answerable"
+  },
+  {
+    "id": "E17",
+    "question": "为什么用 B+ 树做索引？",
+    "gold_file": "数据库_索引与事务.md",
+    "gold_section": "B+树索引",
+    "type": "answerable"
+  },
+  {
+    "id": "E18",
+    "question": "什么是最左前缀原则？",
+    "gold_file": "数据库_索引与事务.md",
+    "gold_section": "最左前缀原则",
+    "type": "answerable"
+  },
+  {
+    "id": "E19",
+    "question": "隔离级别和幻读的关系？",
+    "gold_file": "数据库_索引与事务.md",
+    "gold_section": "隔离级别与幻读",
+    "type": "answerable"
+  },
+  {
+    "id": "E20",
+    "question": "事务的 ACID 是什么？",
+    "gold_file": "数据库_索引与事务.md",
+    "gold_section": "事务的 ACID",
+    "type": "answerable"
+  },
+  {
+    "id": "R01",
+    "question": "学校食堂今天菜单",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R02",
+    "question": "周杰伦最新专辑",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R03",
+    "question": "量子计算机的制造工艺",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R04",
+    "question": "下周天气预报",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R05",
+    "question": "校园卡怎么挂失",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R06",
+    "question": "图书馆开门时间",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R07",
+    "question": "火星移民计划",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R08",
+    "question": "股票行情走势",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R09",
+    "question": "怎么写留学申请",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R10",
+    "question": "考研报名流程",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R11",
+    "question": "宿舍路由器怎么设置",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R12",
+    "question": "毕业论文格式要求",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R13",
+    "question": "体检预约流程",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R14",
+    "question": "校车时刻表",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R15",
+    "question": "奖学金评定细则",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R16",
+    "question": "运动会报名",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R17",
+    "question": "电影推荐",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R18",
+    "question": "游戏攻略",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R19",
+    "question": "旅游签证办理",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  },
+  {
+    "id": "R20",
+    "question": "健身计划",
+    "gold_file": "",
+    "gold_section": "",
+    "type": "refusal"
+  }
+]
