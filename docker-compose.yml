@@ -5,5 +5,5 @@ services:
     ports:
       - "8040:8040"
     volumes:
-      - ./data:/app/data          # 知识库与索引持久化
+      - ./data:/app/app/data          # 知识库与索引持久化
     restart: unless-stopped
